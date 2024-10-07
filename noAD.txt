@@ -1,0 +1,17 @@
+# Define variables
+$Username = "YourUsernameHere" # Replace with the local/domain user account
+$NewPassword = "9jb08.##kGTp"
+$Domain = "ROULETTE-1"
+
+# Construct the net user command to change the password
+$Command = "net user $Username $NewPassword /DOMAIN"
+
+# Execute the command
+Invoke-Expression $Command
+
+# Output a message
+if ($?) {
+    Write-Host "Password has been successfully changed for $Username in domain $Domain."
+} else {
+    Write-Host "Failed to change password for $Username in domain $Domain."
+}
