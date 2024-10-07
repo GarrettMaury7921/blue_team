@@ -1,0 +1,13 @@
+# Import Active Directory module
+Import-Module ActiveDirectory
+
+# Define variables
+$Domain = "ROULETTE-1"
+$Username = "admin" # Replace with the domain user's username
+$NewPassword = ConvertTo-SecureString "9jb08.##kGTp" -AsPlainText -Force
+
+# Set new password for the user
+Set-ADAccountPassword -Identity "$Domain\$Username" -NewPassword $NewPassword -Reset
+
+# Output a message
+Write-Host "Password has been successfully changed for $Username in domain $Domain."
